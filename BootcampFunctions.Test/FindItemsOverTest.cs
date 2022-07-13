@@ -1,6 +1,7 @@
 using System;
 using Xunit;
 using BootcampFunctions;
+using Newtonsoft.Json;
 namespace BootcampFunctions.Test;
 
 public class FindItemsOverTest
@@ -14,10 +15,10 @@ public class FindItemsOverTest
         itemList.Add(new Item("apples",3));
 
         List<Item> results = new List<Item>();
-        itemList.Add(new Item("pears",37));
-        itemList.Add(new Item("bananas",27));
+        results.Add(new Item("pears",37));
+        results.Add(new Item("bananas",27));
 
-        Assert.Equal(results.ToString(), FindItemsOver.Execute(itemList,20).ToString());
+        Assert.Equal(JsonConvert.SerializeObject(results), JsonConvert.SerializeObject(FindItemsOver.Execute(itemList,20)));
     }
 
     [Fact]
@@ -40,6 +41,6 @@ public class FindItemsOverTest
         List<Item> results2 = new List<Item>();
         results2.Add(new Item("bananas",27));
 
-        Assert.Equal(results2.ToString(), FindItemsOver.Execute(itemList2,20).ToString());
+        Assert.Equal(JsonConvert.SerializeObject(results2),JsonConvert.SerializeObject(FindItemsOver.Execute(itemList2,20)));
     }
 }

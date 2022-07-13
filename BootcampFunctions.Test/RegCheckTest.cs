@@ -7,7 +7,7 @@ public class RegCheckTest
 {
     [Fact]
     public void ShouldReturnTrueWhenCalledWithDC55YUGPAlongWithGP(){
-        Assert.Equal(true,RegCheck.Execute("DC 55 YU GP","GP") );
+        Assert.Equal (true,RegCheck.Execute("DC 55 YU GP","GP") );
     }
 
     [Fact]

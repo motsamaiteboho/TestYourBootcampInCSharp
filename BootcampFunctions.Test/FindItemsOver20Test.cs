@@ -2,7 +2,7 @@ using System;
 using Xunit;
 using BootcampFunctions;
 namespace BootcampFunctions.Test;
-
+using Newtonsoft.Json;
 public class FindItemsOver20Test
 {
     [Fact]
@@ -14,10 +14,13 @@ public class FindItemsOver20Test
         itemList.Add(new Item("apples",3));
 
         List<Item> results = new List<Item>();
-        itemList.Add(new Item("pears",37));
-        itemList.Add(new Item("bananas",27));
+        results.Add(new Item("pears",37));
+        results.Add(new Item("bananas",27));
 
-        Assert.Equal(results.ToString(), FindItemsOver20.Execute(itemList).ToString());
+        var itemListJson = JsonConvert.SerializeObject(FindItemsOver20.Execute(itemList));
+        var resultsJson = JsonConvert.SerializeObject(results);
+
+        Assert.Equal(resultsJson,itemListJson);
     }
 
     [Fact]
@@ -28,7 +31,7 @@ public class FindItemsOver20Test
 
         List<Item> results1 = new List<Item>();
 
-        Assert.Equal(results1, FindItemsOver20.Execute(itemList1));
+        Assert.Equal(JsonConvert.SerializeObject(results1),JsonConvert.SerializeObject(FindItemsOver20.Execute(itemList1)));
     }
     [Fact]
     public void ShouldReturnResults2WhenCalledWithItemList2OFProducts (){
@@ -40,6 +43,6 @@ public class FindItemsOver20Test
         List<Item> results2 = new List<Item>();
         results2.Add(new Item("bananas",27));
 
-        Assert.Equal(results2.ToString(), FindItemsOver20.Execute(itemList2).ToString());
+        Assert.Equal(JsonConvert.SerializeObject(results2),JsonConvert.SerializeObject(FindItemsOver20.Execute(itemList2)));
     }
 }
