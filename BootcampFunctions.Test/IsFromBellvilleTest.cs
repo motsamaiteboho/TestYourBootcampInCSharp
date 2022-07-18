@@ -7,16 +7,16 @@ public class IsFromBellvilleTest
 {
     [Fact]
     public void ShouldReturnTrueWhenCalledWithCY123(){
-        Assert.Equal(true, IsFromBellville.Execute("CY 123"));
+        Assert.True(IsFromBellville.Execute("CY 123"));
     }
 
     [Fact]
     public void ShouldReturnFalseWhenCalledWithCJ123(){
-        Assert.Equal(false, IsFromBellville.Execute("CJ 123"));
+        Assert.False( IsFromBellville.Execute("CJ 123"));
     }
 
     [Fact]
     public void ShouldReturnTrueWhenCalledWithCY783(){
-        Assert.Equal(true, IsFromBellville.Execute("CY 783"));
+        Assert.True(IsFromBellville.Execute("CY 783"));
     }
 }

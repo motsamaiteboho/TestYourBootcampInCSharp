@@ -3,7 +3,6 @@ public class SalesData
 {
     private string department = string.Empty;
     private int sales;
-
     private string day = string.Empty;
     public SalesData(string department,int sales,string day){
         this.department = department;

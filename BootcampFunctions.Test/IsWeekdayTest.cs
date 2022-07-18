@@ -7,16 +7,16 @@ public class IsWeekdayTest
 {
     [Fact]
     public void ShouldReturnFalseWhenCalledWithSaturday(){
-        Assert.Equal(false,IsWeekday.Execute("Saturday"));
+        Assert.False(IsWeekday.Execute("Saturday"));
     }
 
     [Fact]
     public void ShouldReturnTrueWhenCalledWithModay(){
-        Assert.Equal(true, IsWeekday.Execute("Monday"));
+        Assert.True(IsWeekday.Execute("Monday"));
     }
 
     [Fact]
     public void ShouldReturnFalseWhenCalledWithSunday(){
-        Assert.Equal(false, IsWeekday.Execute("Sunday"));
+        Assert.False(IsWeekday.Execute("Sunday"));
     }
 }
